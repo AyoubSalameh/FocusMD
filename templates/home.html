@@ -1,5 +1,9 @@
 <html>
 
+<head>
+    
+</head>
+
     <style>
         body {
             background-color: #caf0f8;
@@ -35,19 +39,35 @@
             background-color: #023047;
             color: white;
         }
+        
+
+        form {
+            display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 50vh;
+			margin: 0;
+			padding: 0;
+            scale: 3;
+        }
 
     </style>
 
     <body>
-        
         <div class="topnav">
-                    <a class="active" href="">  Home  </a>
-                    <a href="summary/">  Patient Summary  </a>
+            
+            <a class="active" href="#">  Home  </a>
+            <a href="summary/">  Patient Summary  </a>
         </div>
         
 
         <h1>HOME PAGE</h1>
         <p>insert logo here and brief summary of focusMD pls</p>
         
+        <form action="summary/" method="get">
+            <input type="text" placeholder="Search...">
+            <button type="submit">Search</button>
+          </form>
+
     </body>
 </html>

@@ -27,14 +27,167 @@
             background-color: #023047;
             color: white;
         }
+
+
+        .name-box {
+            background-color: #f2f2f2;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin-top: 30px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+  
+        h2 {
+            margin: 0;
+            font-size: 24px;
+            text-align: center;
+        }
+        
+    
+        .bullet-box {
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+
+  ul {
+    list-style: disc;
+    margin-top: 10px;
+    margin-bottom: 0;
+    padding-left: 20px;
+  }
+
+  li {
+    margin-bottom: 10px;
+  }
+
+  form {
+            display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 30vh;
+			margin: 0;
+			padding: 0;
+            scale: 3;
+        }
+        
+        
+    
+        .container {
+            margin-top: 50px;
+            text-align: center;
+          }
+          form {
+            margin-bottom: 30px;
+          }
+          label {
+            font-weight: bold;
+            font-size: 18px;
+          }
+          textarea {
+            height: 150px;
+            font-size: 16px;
+          }
+          button {
+            font-size: 20px;
+            padding: 10px 30px;
+          }
+          .alert {
+            margin-top: 30px;
+            font-size: 18px;
+            font-weight: bold;
+          }
+  
+        
     </style>
 
 
     <body>
         <div class="topnav">
             <a href="/"> Home </a>
-            <a class="active" href="">Patient Summary</a>
+            <a class="active" href="#">Patient Summary</a>
         </div>
     </body>
+
+
+    <div class="name-box">
+        <h2>John Doe</h2>
+      </div>
+
+    <div class="bullet-box">
+  
+        <ul>
+            <li>Point 1</li>
+            <li>Point 2</li>
+            <li>Point 3</li>
+        </ul>
+
+    </div>
+
+    
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <style>
+    /*      .container {
+            margin-top: 50px;
+            text-align: center;
+          }
+          form {
+            margin-bottom: 30px;
+          }
+          label {
+            font-weight: bold;
+            font-size: 18px;
+          }
+          textarea {
+            height: 150px;
+            font-size: 16px;
+          }
+          button {
+            font-size: 20px;
+            padding: 10px 30px;
+          }
+          .alert {
+            margin-top: 30px;
+            font-size: 18px;
+            font-weight: bold;
+          }
+          */
+        </style>
+        <script>
+          window.onload = function() {
+            var textarea = document.getElementById("text");
+            textarea.addEventListener("keydown", function(event) {
+              if (event.keyCode === 13 && !event.shiftKey) {
+                event.preventDefault();
+                document.querySelector("form").submit();
+              }
+            });
+          };
+        </script>
+      </head>
+      
+      <div class="container">
+        <form method="post">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="text">Insert text:</label>
+            <textarea class="form-control" id="text" name="text"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        {% if output %}
+        <div class="alert alert-success">
+          <p>{{ output }}</p>
+        </div>
+        {% endif %}
+      </div>
+      
+      
+        
 
 </html>

@@ -1,0 +1,13 @@
+{% extends 'home.html' %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <input type="text" name="mytextbox">
+    <button type="submit">Submit</button>
+</form>
+
+{% if result %}
+<p>Result: {{ result }}</p>
+{% endif %}
+{% endblock %}
