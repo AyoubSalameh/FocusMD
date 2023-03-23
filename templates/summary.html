@@ -1,5 +1,21 @@
 <html>
 
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
+    <script>
+      window.onload = function() {
+        var textarea = document.getElementById("text");
+        textarea.addEventListener("keydown", function(event) {
+          if (event.keyCode === 13 && !event.shiftKey) {
+            event.preventDefault();
+            document.querySelector("form").submit();
+          }
+        });
+      };
+    </script>
+  </head>
+
     <style>
         body {
             background-color: #caf0f8;
@@ -103,6 +119,27 @@
           }
   
         
+
+        .loader {
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #3498db;
+            width: 120px;
+            height: 120px;
+            -webkit-animation: spin 2s linear infinite; /* Safari */
+        animation: spin 2s linear infinite;
+        }   
+
+
+        @-webkit-keyframes spin {
+            0% { -webkit-transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); }
+}
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+}
     </style>
 
 
@@ -110,6 +147,7 @@
         <div class="topnav">
             <a href="/"> Home </a>
             <a class="active" href="#">Patient Summary</a>
+        
         </div>
     </body>
 
@@ -128,48 +166,9 @@
 
     </div>
 
+    <div class="loader"></div>
+
     
-    <head>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <style>
-    /*      .container {
-            margin-top: 50px;
-            text-align: center;
-          }
-          form {
-            margin-bottom: 30px;
-          }
-          label {
-            font-weight: bold;
-            font-size: 18px;
-          }
-          textarea {
-            height: 150px;
-            font-size: 16px;
-          }
-          button {
-            font-size: 20px;
-            padding: 10px 30px;
-          }
-          .alert {
-            margin-top: 30px;
-            font-size: 18px;
-            font-weight: bold;
-          }
-          */
-        </style>
-        <script>
-          window.onload = function() {
-            var textarea = document.getElementById("text");
-            textarea.addEventListener("keydown", function(event) {
-              if (event.keyCode === 13 && !event.shiftKey) {
-                event.preventDefault();
-                document.querySelector("form").submit();
-              }
-            });
-          };
-        </script>
-      </head>
       
       <div class="container">
         <form method="post">
@@ -178,16 +177,13 @@
             <label for="text">Insert text:</label>
             <textarea class="form-control" id="text" name="text"></textarea>
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary" onclick="">Submit</button>
         </form>
         {% if output %}
         <div class="alert alert-success">
-          <p>{{ output }}</p>
+          <p> {{ output }}</p>
         </div>
         {% endif %}
       </div>
-      
-      
-        
 
 </html>

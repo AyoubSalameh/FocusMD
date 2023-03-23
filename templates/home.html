@@ -40,7 +40,7 @@
             color: white;
         }
         
-
+        
         form {
             display: flex;
 			justify-content: center;
@@ -50,7 +50,7 @@
 			padding: 0;
             scale: 3;
         }
-
+        
     </style>
 
     <body>
@@ -58,16 +58,27 @@
             
             <a class="active" href="#">  Home  </a>
             <a href="summary/">  Patient Summary  </a>
+
         </div>
         
 
         <h1>HOME PAGE</h1>
+        <img src="med.png" />
         <p>insert logo here and brief summary of focusMD pls</p>
         
-        <form action="summary/" method="get">
-            <input type="text" placeholder="Search...">
-            <button type="submit">Search</button>
-          </form>
+        
+        
+            <form action="summary/" method="get">
+                <input type="text" name="q" placeholder="Please Insert ID">
+                <button type="submit">Search</button>
+            </form>
+        
+
+
+    
+        
 
     </body>
+
+   
 </html>
