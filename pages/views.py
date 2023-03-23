@@ -189,7 +189,7 @@ def summary_view(request):
         response = completion["choices"][0]["message"]
         msgs.append(response)
         response = response["content"] 
-    return render(request, 'summary.html', {'output': html.escape(response or "")})
+    return render(request, 'summary.html', {'output': response})
 
 def summary_view_og(request):
     response = None
